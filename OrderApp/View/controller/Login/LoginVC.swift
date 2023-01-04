@@ -34,8 +34,9 @@ class LoginVC: UIViewController {
                 if error != nil {
                     DuplicateFuncs.alertMessage(title: "Error", message: error?.localizedDescription ?? "Firebase Error", vc: self)
                 }else{
-                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "tabbar") as? UITabBarController
-                    self.navigationController?.pushViewController(vc!, animated: true)
+                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "tabbar") as! UITabBarController
+                    vc.modalPresentationStyle = .fullScreen
+                    self.present(vc, animated: true, completion: nil)
                 }
             }
         } else{
