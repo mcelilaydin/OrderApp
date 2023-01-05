@@ -37,16 +37,40 @@ class UploadVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
             
             let uuid = UUID().uuidString
             
-            let imageReference = mediaFolder.child(uuid)
+            let imageReference = mediaFolder.child("\(uuid).jpg")
             imageReference.putData(data, metadata: nil) { (metadata, error) in
                 if error != nil {
-                    print(error?.localizedDescription)
-                }else {
+                    DuplicateFuncs.alertMessage(title: "Error", message: error?.localizedDescription ?? "Error", vc: self)
+                }else{
                     
                     imageReference.downloadURL { url, error in
                         if error == nil {
                             let imageUrl = url?.absoluteString
-                            print(imageUrl)
+
+                            let firestoreDatabase = Firestore.firestore()
+                            
+                            var firestoreReference: DocumentReference? = nil
+                            
+                            let firestorePosts = [
+                                "imageUrl" : imageUrl!,
+                                "usernameEmail" : Auth.auth().currentUser!.email,
+                                "title" : self.titleTextfield.text!,
+                                "category" : self.categoryTextfield.text!,
+                                "price" : self.priceTextfield.text!,
+                                "desc" : self.descTextView.text!,
+                                "date": FieldValue.serverTimestamp()
+                            ] as [String : Any]
+                            
+                            firestoreReference = firestoreDatabase.collection("Posts").addDocument(data: firestorePosts,completion: { error in
+                                if error != nil {
+                                    DuplicateFuncs.alertMessage(title: "Error", message: error?.localizedDescription ?? "", vc: self)
+                                } else {
+                                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "tabbar") as! UITabBarController
+                                    vc.modalPresentationStyle = .fullScreen
+                                    self.present(vc, animated: true, completion: nil)
+                                }
+                            })
+                            
                         }
                     }
                     
