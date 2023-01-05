@@ -9,7 +9,7 @@ import UIKit
 import Firebase
 import FirebaseStorage
 
-class UploadVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class UploadVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate {
     
     @IBOutlet weak var uploadImageView: UIImageView!
     @IBOutlet weak var titleTextfield: UITextField!
@@ -18,10 +18,13 @@ class UploadVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
     @IBOutlet weak var descTextView: UITextView!
     @IBOutlet weak var okeyBtn: UIButton!
     
+//    var categoryText = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        descTextView.delegate = self
         setImageView()
+//        setTextField()
 
         // Do any additional setup after loading the view.
     }
@@ -70,19 +73,27 @@ class UploadVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
                                     self.present(vc, animated: true, completion: nil)
                                 }
                             })
-                            
                         }
                     }
-                    
                 }
             }
-        
         }
     }
-
 }
 
 extension UploadVC {
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if descTextView.text == "Açıklama Giriniz..." {
+            descTextView.text = ""
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if descTextView.text == "" {
+            descTextView.text = "Açıklama Giriniz..."
+        }
+    }
     
     func setImageView(){
         uploadImageView.isUserInteractionEnabled = true
@@ -104,5 +115,18 @@ extension UploadVC {
         self.dismiss(animated: true)
     }
     
-    
+    //MARK: - CATEGORY TEXT FİELD
+    //    func setTextField(){
+    //        categoryTextfield.text = categoryText
+    //        categoryTextfield.rightViewMode = UITextField.ViewMode.always
+    //        let image =  UIImageView(image: UIImage(systemName: "chevron.right"))
+    //        image.tintColor = .gray
+    //        categoryTextfield.rightView = image
+    //        categoryTextfield.addTarget(self, action: #selector(touchCategoryTextfield), for: .editingDidBegin)
+    //    }
+    //    @objc func touchCategoryTextfield(){
+    //        let vc = self.storyboard?.instantiateViewController(withIdentifier: "category") as! CategoryVC
+    //        vc.modalPresentationStyle = .fullScreen
+    //        self.present(vc, animated: true, completion: nil)
+    //    }
 }

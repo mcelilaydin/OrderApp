@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C0F2036296734C100E43E97 /* CategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0F2035296734C100E43E97 /* CategoryVC.swift */; };
 		4C2C14802963A7E100D53813 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2C147F2963A7E100D53813 /* SearchVC.swift */; };
 		4C2C14832963A8B500D53813 /* UploadVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2C14822963A8B500D53813 /* UploadVC.swift */; };
 		4C7F3E1C2963610A00EDD275 /* DuplicateFuncs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7F3E1B2963610A00EDD275 /* DuplicateFuncs.swift */; };
@@ -33,6 +34,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4C0F2035296734C100E43E97 /* CategoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryVC.swift; sourceTree = "<group>"; };
 		4C2C147F2963A7E100D53813 /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		4C2C14822963A8B500D53813 /* UploadVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadVC.swift; sourceTree = "<group>"; };
 		4C7F3E1B2963610A00EDD275 /* DuplicateFuncs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuplicateFuncs.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				4C2C14822963A8B500D53813 /* UploadVC.swift */,
+				4C0F2035296734C100E43E97 /* CategoryVC.swift */,
 			);
 			path = Upload;
 			sourceTree = "<group>";
@@ -299,6 +302,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C0F2036296734C100E43E97 /* CategoryVC.swift in Sources */,
 				4C2C14802963A7E100D53813 /* SearchVC.swift in Sources */,
 				4C7F3E1F296374B100EDD275 /* ProfileVC.swift in Sources */,
 				4C943BC929634AA500B8EABB /* SignUpVC.swift in Sources */,

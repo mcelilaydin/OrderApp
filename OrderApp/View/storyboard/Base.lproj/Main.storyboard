@@ -201,6 +201,33 @@
                                     <constraint firstAttribute="width" constant="260" id="kRz-vT-xI1"/>
                                 </constraints>
                             </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="rxx-Aq-mJk">
+                                <rect key="frame" x="20" y="379" width="353" height="269"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" verticalCompressionResistancePriority="752" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ürün başlık" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="INj-Cb-eir">
+                                        <rect key="frame" x="0.0" y="0.0" width="353" height="43"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ürün kategori" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E9i-ZL-xNb">
+                                        <rect key="frame" x="0.0" y="53" width="353" height="34"/>
+                                        <nil key="textColor"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ürün Fiyat" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d4q-Ti-5cV">
+                                        <rect key="frame" x="0.0" y="97" width="353" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Açıklama Giriniz..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="9rG-G2-kvv">
+                                        <rect key="frame" x="0.0" y="141" width="353" height="128"/>
+                                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                        <color key="textColor" red="0.55699455740000003" green="0.55652165409999999" blue="0.57647329570000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                            </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dAq-wn-kMs">
                                 <rect key="frame" x="146" y="723" width="101" height="60"/>
                                 <constraints>
@@ -212,33 +239,6 @@
                                     <action selector="okeyButtonClicked:" destination="Eme-mA-ZWa" eventType="touchUpInside" id="mPk-Be-5FJ"/>
                                 </connections>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="rxx-Aq-mJk">
-                                <rect key="frame" x="20" y="379" width="353" height="269"/>
-                                <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" verticalCompressionResistancePriority="752" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ürün başlık" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="INj-Cb-eir">
-                                        <rect key="frame" x="0.0" y="0.0" width="353" height="43"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ürün kategori" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E9i-ZL-xNb">
-                                        <rect key="frame" x="0.0" y="53" width="353" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ürün Fiyat" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d4q-Ti-5cV">
-                                        <rect key="frame" x="0.0" y="97" width="353" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Açıklama giriniz..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="9rG-G2-kvv">
-                                        <rect key="frame" x="0.0" y="141" width="353" height="128"/>
-                                        <color key="backgroundColor" systemColor="systemGray6Color"/>
-                                        <color key="textColor" red="0.55699455740000003" green="0.55652165409999999" blue="0.57647329570000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
-                                </subviews>
-                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ETl-Ye-VnD"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -268,6 +268,46 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q3S-bG-Mix" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6525.9541984732823" y="-6.3380281690140849"/>
+        </scene>
+        <!--CategoryVC-->
+        <scene sceneID="Hne-Be-qMB">
+            <objects>
+                <viewController storyboardIdentifier="category" id="RPJ-at-hIQ" customClass="CategoryVC" customModule="OrderApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Qym-Rs-16J">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="p2W-wt-Ufu">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="zXT-Bd-4ZJ">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zXT-Bd-4ZJ" id="Joa-4y-703">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="88h-lp-vim"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="p2W-wt-Ufu" firstAttribute="top" secondItem="88h-lp-vim" secondAttribute="top" id="97Y-hd-eA4"/>
+                            <constraint firstItem="p2W-wt-Ufu" firstAttribute="leading" secondItem="88h-lp-vim" secondAttribute="leading" id="9Kb-eL-MWR"/>
+                            <constraint firstItem="88h-lp-vim" firstAttribute="trailing" secondItem="p2W-wt-Ufu" secondAttribute="trailing" id="Chk-27-rDV"/>
+                            <constraint firstItem="88h-lp-vim" firstAttribute="bottom" secondItem="p2W-wt-Ufu" secondAttribute="bottom" id="qfx-zc-rue"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="categoryTableView" destination="p2W-wt-Ufu" id="Fgo-65-SVD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0IB-L4-bcO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6515" y="686"/>
         </scene>
         <!--ANA SAYFA-->
         <scene sceneID="tCp-e7-uqw">
