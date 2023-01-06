@@ -54,13 +54,3 @@ extension HomeVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollecti
         self.navigationController?.pushViewController(vc!, animated: true)
     }
 }
-
-
-
-/*
-collectiondaki resimlerin boyutlarını ayarla
-multiply image seçmek için framework araştır.
-https://stackoverflow.com/questions/20756899/how-to-select-multiple-images-from-uiimagepickercontroller
-kullanıcı para mevzusu
-sepete ekleme
- */
