@@ -8,6 +8,7 @@
 import UIKit
 import Firebase
 import FirebaseStorage
+import SDWebImage
 
 class AdvertVC: UIViewController {
 
@@ -43,7 +44,7 @@ extension AdvertVC: UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = advertTableView.dequeueReusableCell(withIdentifier: AdvertCell.identifier,for: indexPath) as! AdvertCell
-        cell.advertİmageView.image = UIImage(named: "")
+        cell.advertİmageView.sd_setImage(with: URL(string: imageUrlArray[indexPath.row]))
         cell.titleLabel.text = titleArray[indexPath.row]
         cell.priceLabel.text = priceArray[indexPath.row]
         return cell
@@ -59,13 +60,21 @@ extension AdvertVC: UITableViewDelegate,UITableViewDataSource {
 extension AdvertVC {
     
     func getData(){
+        
         let firebaseDatabase = Firestore.firestore()
         
-        firebaseDatabase.collection("Posts").addSnapshotListener { snapshot, error in
+        firebaseDatabase.collection("Posts").order(by: "date", descending: true).addSnapshotListener { snapshot, error in
             if error != nil {
                 DuplicateFuncs.alertMessage(title: "Error", message: error?.localizedDescription ?? "", vc: self)
             }else {
                 if snapshot?.isEmpty == false {
+                    self.useremailArray.removeAll(keepingCapacity: false)
+                    self.titleArray.removeAll(keepingCapacity: false)
+                    self.priceArray.removeAll(keepingCapacity: false)
+                    self.categoryArray.removeAll(keepingCapacity: false)
+                    self.imageUrlArray.removeAll(keepingCapacity: false)
+                    self.descArray.removeAll(keepingCapacity: false)
+                    
                     for document in snapshot!.documents {
                         let documentId = document.documentID
                         

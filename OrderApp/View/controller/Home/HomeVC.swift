@@ -18,10 +18,9 @@ class HomeVC: UIViewController {
         advertCollectionView.delegate = self
         advertCollectionView.dataSource = self
         advertSlide = [
-            HomeSlide(image:UIImage(named: "ball")!), //phone
-            HomeSlide(image:UIImage(named: "ball")!),
-            HomeSlide(image:UIImage(named: "ball")!),
-            HomeSlide(image:UIImage(named: "ball")!)
+            HomeSlide(image:UIImage(named: "computer")!),
+            HomeSlide(image:UIImage(named: "tv")!),
+            HomeSlide(image:UIImage(named: "phone")!)
         ]
 
         // Do any additional setup after loading the view.

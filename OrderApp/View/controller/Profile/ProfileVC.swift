@@ -19,8 +19,9 @@ class ProfileVC: UIViewController {
     @IBAction func logoutButtonClicked(_ sender: Any) {
         do{
             try Auth.auth().signOut()
-            let vc = self.storyboard?.instantiateViewController(withIdentifier: "login") as? LoginVC
-            self.navigationController?.pushViewController(vc!, animated: true)
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "login") as! LoginVC
+            vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: true, completion: nil)
         }catch{
             print("Logout başarısız")
         }
