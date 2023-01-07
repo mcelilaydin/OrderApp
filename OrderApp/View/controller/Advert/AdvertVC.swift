@@ -10,7 +10,7 @@ import Firebase
 import FirebaseStorage
 import SDWebImage
 
-class AdvertVC: UIViewController {
+class AdvertVC: BaseVC {
 
     @IBOutlet weak var advertTableView: UITableView!
     

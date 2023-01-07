@@ -171,8 +171,20 @@
                     <view key="view" contentMode="scaleToFill" id="aGX-av-pUn">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="bP6-Hb-Eoy">
+                                <rect key="frame" x="0.0" y="103" width="393" height="666"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vmd-Rm-jTl"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="bP6-Hb-Eoy" firstAttribute="top" secondItem="vmd-Rm-jTl" secondAttribute="top" id="OmJ-Ce-8Hg"/>
+                            <constraint firstItem="bP6-Hb-Eoy" firstAttribute="leading" secondItem="vmd-Rm-jTl" secondAttribute="leading" id="YUj-ho-TXw"/>
+                            <constraint firstItem="vmd-Rm-jTl" firstAttribute="trailing" secondItem="bP6-Hb-Eoy" secondAttribute="trailing" id="ZzH-Op-nfa"/>
+                            <constraint firstItem="vmd-Rm-jTl" firstAttribute="bottom" secondItem="bP6-Hb-Eoy" secondAttribute="bottom" id="hnB-r4-0n5"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="ARAMA" id="xco-5R-2Bv">
                         <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="JCI-LM-J9k">
@@ -181,6 +193,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="searchTableView" destination="bP6-Hb-Eoy" id="g0L-6s-jsp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hmo-Qr-8vw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

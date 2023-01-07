@@ -8,7 +8,7 @@
 import UIKit
 import Firebase
 
-class ProfileVC: UIViewController {
+class ProfileVC: BaseVC {
 
     override func viewDidLoad() {
         super.viewDidLoad()
