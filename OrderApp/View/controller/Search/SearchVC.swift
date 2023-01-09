@@ -38,14 +38,15 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        cell.textLabel?.text = uniqueArray[indexPath.row]
+        cell.textLabel?.text = uniqueArray[indexPath.row].uppercased()
         return cell
     }
     
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let vc = self.storyboard?.instantiateViewController(withIdentifier: "advert") as? AdvertVC
-//        self.navigationController?.pushViewController(vc!, animated: true)
-//    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "advert") as? AdvertVC
+        vc?.selectedCategory = uniqueArray[indexPath.row]
+        self.navigationController?.pushViewController(vc!, animated: true)
+    }
 }
 
 extension SearchVC {
@@ -75,7 +76,7 @@ extension SearchVC {
     
     func uniArray(){
         for i in categoryArray {
-            let trimmedString = i.trimmingCharacters(in: .whitespaces).uppercased()
+            let trimmedString = i.trimmingCharacters(in: .whitespaces)
             if !uniqueArray.contains(trimmedString) {
                 uniqueArray.append(trimmedString)
             }

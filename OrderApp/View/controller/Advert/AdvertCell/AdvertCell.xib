@@ -41,6 +41,12 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MUm-IB-Bvs" userLabel="Category Label">
+                                        <rect key="frame" x="0.0" y="107" width="248" height="0.0"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -56,6 +62,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="advertİmageView" destination="Iuc-qy-5Dz" id="grL-pV-hcZ"/>
+                <outlet property="categoryLabel" destination="MUm-IB-Bvs" id="YAt-Sz-Rot"/>
                 <outlet property="priceLabel" destination="fwf-uv-oaP" id="cAb-6L-GpL"/>
                 <outlet property="titleLabel" destination="zYw-rT-Hpw" id="kW5-GF-z01"/>
             </connections>

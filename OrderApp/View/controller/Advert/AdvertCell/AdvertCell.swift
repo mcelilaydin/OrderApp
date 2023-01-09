@@ -12,6 +12,7 @@ class AdvertCell: UITableViewCell {
     @IBOutlet weak var advertİmageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var categoryLabel: UILabel!
     
     static var identifier = "AdvertCell"
     
