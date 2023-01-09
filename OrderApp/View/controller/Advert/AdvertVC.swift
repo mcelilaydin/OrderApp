@@ -56,20 +56,19 @@ extension AdvertVC: UITableViewDelegate,UITableViewDataSource {
         if selectedCategory == "" {
             cell.advertİmageView.sd_setImage(with: URL(string: imageUrlArray[indexPath.row]))
             cell.titleLabel.text = titleArray[indexPath.row]
-            cell.priceLabel.text = priceArray[indexPath.row]
+            var price = priceArray[indexPath.row]
+            cell.priceLabel.text = price.currencyInputFormatting()
             cell.categoryLabel.text = categoryArray[indexPath.row]
         }else { //searchVC
             cell.advertİmageView.sd_setImage(with: URL(string: filtImageArray[indexPath.row]))
             cell.titleLabel.text = filtTitleArray[indexPath.row]
-            cell.priceLabel.text = filtPriceArray[indexPath.row]
+            var filtPrice = filtPriceArray[indexPath.row]
+            cell.priceLabel.text = filtPrice.currencyInputFormatting()
         }
         return cell
     }
 //    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let vc = self.storyboard?.instantiateViewController(withIdentifier: "upload") as! UploadVC
-//        vc.modalPresentationStyle = .fullScreen
-//       // vc.categoryText = categoryArray[indexPath.row]
-//        self.present(vc, animated: true, completion: nil)
+//         ÜRÜN DETAY EKRANI !
 //    }
 }
 
