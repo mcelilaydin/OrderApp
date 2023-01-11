@@ -8,8 +8,12 @@
 import Foundation
 import UIKit
 
-struct HomeSlide {
+struct AdvertSlide {
     let image: UIImage
+}
+
+struct MyListSlide {
+    let imageUrl: String
 }
 
 

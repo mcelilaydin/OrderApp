@@ -13,7 +13,7 @@ class AdvertCollectionViewCell: UICollectionViewCell {
     
     static let identifier = String(describing: AdvertCollectionViewCell.self)
     
-    func setup(_ slide: HomeSlide) {
+    func setup(_ slide: AdvertSlide) {
         slideImageView.image = slide.image
     }
     

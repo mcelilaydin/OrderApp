@@ -15,8 +15,10 @@
 		4C0F20432968A2B500E43E97 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 4C0F20422968A2B500E43E97 /* SDWebImage */; };
 		4C0F2046296A323800E43E97 /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0F2045296A323800E43E97 /* BaseVC.swift */; };
 		4C0F2048296CAFC500E43E97 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0F2047296CAFC500E43E97 /* String+Extension.swift */; };
+		4C0F204A296F1C6600E43E97 /* MyListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0F2049296F1C6500E43E97 /* MyListCollectionViewCell.swift */; };
 		4C2C14802963A7E100D53813 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2C147F2963A7E100D53813 /* SearchVC.swift */; };
 		4C2C14832963A8B500D53813 /* UploadVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2C14822963A8B500D53813 /* UploadVC.swift */; };
+		4C6A8BB3296F55AC003AA7AA /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6A8BB2296F55AC003AA7AA /* UIView+Extensions.swift */; };
 		4C7F3E1C2963610A00EDD275 /* DuplicateFuncs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7F3E1B2963610A00EDD275 /* DuplicateFuncs.swift */; };
 		4C7F3E1F296374B100EDD275 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7F3E1E296374B100EDD275 /* ProfileVC.swift */; };
 		4C7F3E222963964900EDD275 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7F3E212963964900EDD275 /* HomeVC.swift */; };
@@ -48,8 +50,10 @@
 		4C0F203E29688D3700E43E97 /* AdvertCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdvertCell.xib; sourceTree = "<group>"; };
 		4C0F2045296A323800E43E97 /* BaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
 		4C0F2047296CAFC500E43E97 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		4C0F2049296F1C6500E43E97 /* MyListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListCollectionViewCell.swift; sourceTree = "<group>"; };
 		4C2C147F2963A7E100D53813 /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		4C2C14822963A8B500D53813 /* UploadVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadVC.swift; sourceTree = "<group>"; };
+		4C6A8BB2296F55AC003AA7AA /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		4C7F3E1B2963610A00EDD275 /* DuplicateFuncs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuplicateFuncs.swift; sourceTree = "<group>"; };
 		4C7F3E1E296374B100EDD275 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		4C7F3E212963964900EDD275 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
@@ -142,6 +146,7 @@
 			children = (
 				4C7F3E212963964900EDD275 /* HomeVC.swift */,
 				4C0F203929674E0900E43E97 /* AdvertCollectionViewCell.swift */,
+				4C0F2049296F1C6500E43E97 /* MyListCollectionViewCell.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -193,6 +198,7 @@
 				4C943BCD29634F6000B8EABB /* UIColor+Extension.swift */,
 				4C7F3E1B2963610A00EDD275 /* DuplicateFuncs.swift */,
 				4C0F2047296CAFC500E43E97 /* String+Extension.swift */,
+				4C6A8BB2296F55AC003AA7AA /* UIView+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -349,6 +355,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C6A8BB3296F55AC003AA7AA /* UIView+Extensions.swift in Sources */,
 				4C0F2036296734C100E43E97 /* AdvertVC.swift in Sources */,
 				4C2C14802963A7E100D53813 /* SearchVC.swift in Sources */,
 				4C0F203F29688D3700E43E97 /* AdvertCell.swift in Sources */,
@@ -367,6 +374,7 @@
 				4C7F3E1C2963610A00EDD275 /* DuplicateFuncs.swift in Sources */,
 				4C943B952963416900B8EABB /* SceneDelegate.swift in Sources */,
 				4C7F3E222963964900EDD275 /* HomeVC.swift in Sources */,
+				4C0F204A296F1C6600E43E97 /* MyListCollectionViewCell.swift in Sources */,
 				4C943BCE29634F6000B8EABB /* UIColor+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
