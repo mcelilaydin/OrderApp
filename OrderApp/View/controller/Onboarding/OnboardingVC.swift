@@ -27,8 +27,6 @@ class OnboardingVC: BaseVC {
             }
         }
     }
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.delegate = self
@@ -75,7 +73,4 @@ extension OnboardingVC: UICollectionViewDelegate,UICollectionViewDataSource,UICo
         let width = scrollView.frame.width
         currentPage = Int(scrollView.contentOffset.x / width)
     }
-    
-    
-    
 }
