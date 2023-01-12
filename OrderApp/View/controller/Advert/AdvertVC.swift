@@ -28,6 +28,8 @@ class AdvertVC: BaseVC {
     var filtImageArray = [String]()
     var filtPriceArray = [String]()
     
+    var userAdvert: Bool = false
+    
     
     
     override func viewDidLoad() {
@@ -44,7 +46,7 @@ class AdvertVC: BaseVC {
 extension AdvertVC: UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if selectedCategory == "" {
+        if selectedCategory == "" && userAdvert == false {
             return useremailArray.count
         }else { //to searchVC
             return rowCount
@@ -53,7 +55,7 @@ extension AdvertVC: UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = advertTableView.dequeueReusableCell(withIdentifier: AdvertCell.identifier,for: indexPath) as! AdvertCell
-        if selectedCategory == "" {
+        if selectedCategory == "" && userAdvert == false{
             cell.advertİmageView.sd_setImage(with: URL(string: imageUrlArray[indexPath.row]))
             cell.titleLabel.text = titleArray[indexPath.row]
             var price = priceArray[indexPath.row]
@@ -73,8 +75,8 @@ extension AdvertVC: UITableViewDelegate,UITableViewDataSource {
 }
 
 extension AdvertVC {
-    
-    func getData(){
+    //MARK: -FİREBASE
+    func getAllData(){
         
         let firebaseDatabase = Firestore.firestore()
         
@@ -153,15 +155,52 @@ extension AdvertVC {
             }
         }
     }
+    
+    func getUserData(){
+        let firebaseDatabase = Firestore.firestore()
+        
+        firebaseDatabase.collection("Posts").order(by: "date", descending: true).addSnapshotListener { snapshot, error in
+            if error != nil {
+                DuplicateFuncs.alertMessage(title: "Error", message: error?.localizedDescription ?? "", vc: self)
+            }else {
+                if snapshot?.isEmpty == false {
+                    self.titleArray.removeAll(keepingCapacity: false)
+                    self.priceArray.removeAll(keepingCapacity: false)
+                    self.imageUrlArray.removeAll(keepingCapacity: false)
+                    
+                    for document in snapshot!.documents {
+                        if Auth.auth().currentUser != nil {
+                            let email = Auth.auth().currentUser!.email
+                            if email == document.get("usernameEmail") as? String {
+                                self.rowCount += 1
+                                if let title = document.get("title") as? String{
+                                    self.filtTitleArray.append(title)
+                                }
+                                if let price = document.get("price") as? String {
+                                    self.filtPriceArray.append(price)
+                                }
+                                if let imageUrl = document.get("imageUrl") as? String {
+                                    self.filtImageArray.append(imageUrl)
+                                }
+                            }
+                        }
+                    }
+                    self.advertTableView.reloadData()
+                }
+            }
+        }
+    }
 }
 
 extension AdvertVC {
     
     func callFunc(){
-        if selectedCategory == ""{
-            getData()
-        }else {
+        if selectedCategory == "" && userAdvert == false{
+            getAllData()
+        }else if selectedCategory != "" && userAdvert == false{
             getFiltData()
+        }else {
+            getUserData()
         }
     }
     

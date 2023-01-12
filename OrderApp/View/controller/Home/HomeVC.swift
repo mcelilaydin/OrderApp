@@ -17,7 +17,10 @@ class HomeVC: BaseVC {
     
     var advertSlide: [AdvertSlide] = []
     var myListSlide: [MyListSlide] = []
-    var myImageUrl: [String] = []
+    
+    var myImageUrl = [String]()
+    var myTitle = [String]()
+    var myPrice = [String]()
     
     //MARK: to be fixed !!
     var str1 = "https://firebasestorage.googleapis.com:443/v0/b/orderapp-dcb5d.appspot.com/o/media%2F88588CAE-5AC7-47A6-BFBB-B814D6F31E36.jpg?alt=media&token=08a1f2c1-9b0d-43e3-b17a-7529e8c7d7b7"
@@ -39,11 +42,17 @@ class HomeVC: BaseVC {
             MyListSlide(imageUrl: str2),
             MyListSlide(imageUrl: str3)
         ]
+//        myListSlide = [
+//            MyListSlide(imageUrl: myImageUrl[0]),
+//            MyListSlide(imageUrl: myImageUrl[1]),
+//            MyListSlide(imageUrl: myImageUrl[2])
+//        ]
         // Do any additional setup after loading the view.
     }
     
     @IBAction func profileButtonClicked(_ sender: Any) {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "profile") as? ProfileVC
+        vc?.count = myImageUrl.count
         self.navigationController?.pushViewController(vc!, animated: true)
     }
 }
@@ -74,17 +83,22 @@ extension HomeVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollecti
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "advert") as? AdvertVC
-        self.navigationController?.pushViewController(vc!, animated: true)
+        if collectionView == myListCollectionView {
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "advert") as? AdvertVC
+            vc?.userAdvert = true
+            self.navigationController?.pushViewController(vc!, animated: true)
+        }else {
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "advert") as? AdvertVC
+            self.navigationController?.pushViewController(vc!, animated: true)
+        }
     }
 }
 
 extension HomeVC {
     
-    func callCollection(){
+    func callCollection() {
         advertCollectionView.delegate = self
         myListCollectionView.delegate = self
-        
         advertCollectionView.dataSource = self
         myListCollectionView.dataSource = self
     }
@@ -107,6 +121,12 @@ extension HomeVC {
                                 if Auth.auth().currentUser!.email == email {
                                     if let imageUrl = document.get("imageUrl") as? String {
                                         self.myImageUrl.append(imageUrl)
+                                    }
+                                    if let title = document.get("title") as? String {
+                                        self.myTitle.append(title)
+                                    }
+                                    if let price = document.get("price") as? String {
+                                        self.myPrice.append(price)
                                     }
                                 }
                             }
