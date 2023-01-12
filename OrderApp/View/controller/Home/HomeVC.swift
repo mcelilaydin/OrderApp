@@ -18,9 +18,9 @@ class HomeVC: BaseVC {
     var advertSlide: [AdvertSlide] = []
     var myListSlide: [MyListSlide] = []
     
-    var myImageUrl = [String]()
-    var myTitle = [String]()
-    var myPrice = [String]()
+    var myImageUrlArray = [String]()
+    var myTitleArray = [String]()
+    var myPriceArray = [String]()
     
     //MARK: to be fixed !!
     var str1 = "https://firebasestorage.googleapis.com:443/v0/b/orderapp-dcb5d.appspot.com/o/media%2F88588CAE-5AC7-47A6-BFBB-B814D6F31E36.jpg?alt=media&token=08a1f2c1-9b0d-43e3-b17a-7529e8c7d7b7"
@@ -52,7 +52,7 @@ class HomeVC: BaseVC {
     
     @IBAction func profileButtonClicked(_ sender: Any) {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "profile") as? ProfileVC
-        vc?.count = myImageUrl.count
+        vc?.count = myImageUrlArray.count
         self.navigationController?.pushViewController(vc!, animated: true)
     }
 }
@@ -86,6 +86,10 @@ extension HomeVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollecti
         if collectionView == myListCollectionView {
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "advert") as? AdvertVC
             vc?.userAdvert = true
+            vc?.rowCount = myImageUrlArray.count
+            vc?.filtTitleArray = myTitleArray
+            vc?.filtPriceArray = myPriceArray
+            vc?.filtImageArray = myImageUrlArray
             self.navigationController?.pushViewController(vc!, animated: true)
         }else {
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "advert") as? AdvertVC
@@ -114,19 +118,19 @@ extension HomeVC {
                 DuplicateFuncs.alertMessage(title: "Error", message: error?.localizedDescription ?? "", vc: self)
             }else {
                 if snapshot?.isEmpty == false {
-                    self.myImageUrl.removeAll(keepingCapacity: false)
+                    self.myImageUrlArray.removeAll(keepingCapacity: false)
                     for document in snapshot!.documents {
                         if let email = document.get("usernameEmail") as? String {
                             if Auth.auth().currentUser?.email != ""{
                                 if Auth.auth().currentUser!.email == email {
                                     if let imageUrl = document.get("imageUrl") as? String {
-                                        self.myImageUrl.append(imageUrl)
+                                        self.myImageUrlArray.append(imageUrl)
                                     }
                                     if let title = document.get("title") as? String {
-                                        self.myTitle.append(title)
+                                        self.myTitleArray.append(title)
                                     }
                                     if let price = document.get("price") as? String {
-                                        self.myPrice.append(price)
+                                        self.myPriceArray.append(price)
                                     }
                                 }
                             }

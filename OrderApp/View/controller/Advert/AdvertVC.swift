@@ -155,41 +155,6 @@ extension AdvertVC {
             }
         }
     }
-    
-    func getUserData(){
-        let firebaseDatabase = Firestore.firestore()
-        
-        firebaseDatabase.collection("Posts").order(by: "date", descending: true).addSnapshotListener { snapshot, error in
-            if error != nil {
-                DuplicateFuncs.alertMessage(title: "Error", message: error?.localizedDescription ?? "", vc: self)
-            }else {
-                if snapshot?.isEmpty == false {
-                    self.titleArray.removeAll(keepingCapacity: false)
-                    self.priceArray.removeAll(keepingCapacity: false)
-                    self.imageUrlArray.removeAll(keepingCapacity: false)
-                    
-                    for document in snapshot!.documents {
-                        if Auth.auth().currentUser != nil {
-                            let email = Auth.auth().currentUser!.email
-                            if email == document.get("usernameEmail") as? String {
-                                self.rowCount += 1
-                                if let title = document.get("title") as? String{
-                                    self.filtTitleArray.append(title)
-                                }
-                                if let price = document.get("price") as? String {
-                                    self.filtPriceArray.append(price)
-                                }
-                                if let imageUrl = document.get("imageUrl") as? String {
-                                    self.filtImageArray.append(imageUrl)
-                                }
-                            }
-                        }
-                    }
-                    self.advertTableView.reloadData()
-                }
-            }
-        }
-    }
 }
 
 extension AdvertVC {
@@ -199,8 +164,6 @@ extension AdvertVC {
             getAllData()
         }else if selectedCategory != "" && userAdvert == false{
             getFiltData()
-        }else {
-            getUserData()
         }
     }
     
