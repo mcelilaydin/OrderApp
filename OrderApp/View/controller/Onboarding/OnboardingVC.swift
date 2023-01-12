@@ -20,10 +20,10 @@ class OnboardingVC: BaseVC {
             pageControl.currentPage = currentPage
             if currentPage == slides.count - 1 {
                 nextBtn.layer.opacity = 1
-                nextBtn.setTitle("Get Started", for: .normal)
+                nextBtn.setTitle("Başla", for: .normal)
             }else {
                 nextBtn.layer.opacity = 0.5
-                nextBtn.setTitle("Next", for: .normal)
+                nextBtn.setTitle("Devam", for: .normal)
             }
         }
     }
@@ -33,9 +33,9 @@ class OnboardingVC: BaseVC {
         collectionView.dataSource = self
         nextBtn.layer.opacity = 0.5
         slides = [
-            OnboardingSlide(title: "Recording", description: "The user will be registered.", image:UIImage(named: "record")!), //kayıt işlemi
-            OnboardingSlide(title: "Advert", description: "User can post product advertisement.", image:UIImage(named: "advert")!), //ilan
-            OnboardingSlide(title: "Filtering", description: "User will be able to filter their own postings.", image:UIImage(named: "filter")!) //Filtreleme
+            OnboardingSlide(title: "Kayıt İşlemi", description: "Kullanıcının kayıt olması bekleniyor.", image:UIImage(named: "record")!), //kayıt işlemi
+            OnboardingSlide(title: "İlan", description: "Kullanıcı İlan verebiliyor.", image:UIImage(named: "advert")!), //ilan
+            OnboardingSlide(title: "Filtreleme", description: "Kullanıcı farklı şekilde İlanları filtreleyebiliyor.", image:UIImage(named: "filter")!) //Filtreleme
         ]
 
         // Do any additional setup after loading the view.
@@ -49,7 +49,7 @@ class OnboardingVC: BaseVC {
             vc.modalTransitionStyle = .flipHorizontal
             self.present(vc, animated: true)
         }else {
-            DuplicateFuncs.alertMessage(title: "", message: "Please swipe to the right.", vc: self)
+            DuplicateFuncs.alertMessage(title: "", message: "Lütfen Sağ kaydırın.", vc: self)
         }
     }
 }

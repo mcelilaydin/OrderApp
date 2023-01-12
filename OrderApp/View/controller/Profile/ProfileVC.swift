@@ -26,7 +26,21 @@ class ProfileVC: BaseVC {
     }
     
     @IBAction func changePasswordClicked(_ sender: Any) {
-        
+        if changePassword.text != "" {
+            if changePassword.text == changePasswordTwo.text {
+                Auth.auth().currentUser?.updatePassword(to: changePasswordTwo.text!,completion: { error in
+                    if error != nil {
+                        DuplicateFuncs.alertMessage(title: "Error", message: error?.localizedDescription ?? "Error", vc: self)
+                    }else {
+                        self.changePassword.text = ""
+                        self.changePasswordTwo.text = ""
+                        DuplicateFuncs.alertMessage(title: "Başarılı", message: "Şifre değiştirme başarılı.", vc: self)
+                    }
+                })
+            }else {
+                DuplicateFuncs.alertMessage(title: "Hata", message: "Lütfen Aynı şifre Giriniz", vc: self)
+            }
+        }
     }
 
     @IBAction func logoutButtonClicked(_ sender: Any) {
@@ -36,7 +50,7 @@ class ProfileVC: BaseVC {
             vc.modalPresentationStyle = .fullScreen
             self.present(vc, animated: true, completion: nil)
         }catch{
-            print("Logout başarısız")
+            DuplicateFuncs.alertMessage(title: "Hata", message: "Çıkış Başarısız", vc: self)
         }
     }
 }

@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -305,7 +306,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="ARAMA" id="xco-5R-2Bv">
-                        <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="JCI-LM-J9k">
+                        <barButtonItem key="rightBarButtonItem" id="JCI-LM-J9k">
+                            <imageReference key="image" image="plus" catalog="system" symbolScale="large"/>
+                            <color key="tintColor" systemColor="labelColor"/>
                             <connections>
                                 <action selector="uploadButtonClicked:" destination="mtn-GL-Pck" id="Dmo-rK-Rqk"/>
                             </connections>
@@ -372,11 +375,19 @@
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dAq-wn-kMs">
                                 <rect key="frame" x="146" y="723" width="101" height="60"/>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="k8e-nh-6hK"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Tamam"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Tamam">
+                                    <color key="baseForegroundColor" systemColor="labelColor"/>
+                                </buttonConfiguration>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="okeyButtonClicked:" destination="Eme-mA-ZWa" eventType="touchUpInside" id="mPk-Be-5FJ"/>
                                 </connections>
@@ -571,7 +582,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="ANA SAYFA" id="mJg-Ig-B5L">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="person.fill" catalog="system" id="br9-e8-imH">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="br9-e8-imH">
+                            <imageReference key="image" image="person.fill" catalog="system" symbolScale="large"/>
+                            <color key="tintColor" systemColor="labelColor"/>
                             <connections>
                                 <action selector="profileButtonClicked:" destination="kL5-Jz-37u" id="6lF-o5-5nc"/>
                             </connections>
@@ -858,6 +871,9 @@
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="plus" catalog="system" width="128" height="113"/>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
