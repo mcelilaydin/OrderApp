@@ -19,7 +19,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         let currentUser = Auth.auth().currentUser
         
-        if currentUser != nil {
+        if UserDefaults.standard.bool(forKey: "openApp") == false {
+            let board = UIStoryboard(name: "Main", bundle: nil)
+            let vc = board.instantiateViewController(withIdentifier: "onboarding") as! OnboardingVC
+            window?.rootViewController = vc
+        }else if currentUser != nil {
             let board = UIStoryboard(name: "Main", bundle: nil)
             let tabBar = board.instantiateViewController(withIdentifier: "tabbar") as! UITabBarController
             window?.rootViewController = tabBar

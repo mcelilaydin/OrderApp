@@ -16,4 +16,10 @@ struct MyListSlide {
     let imageUrl: String
 }
 
+struct OnboardingSlide {
+    let title: String
+    let description: String
+    let image: UIImage
+}
+
 
