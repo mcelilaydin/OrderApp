@@ -24,9 +24,12 @@ class AdvertVC: BaseVC {
     
     var selectedCategory : String = ""
     var rowCount : Int = 0
+    var filtUsernameArray = [String]()
     var filtTitleArray = [String]()
     var filtImageArray = [String]()
     var filtPriceArray = [String]()
+    var filtDescArray = [String]()
+    var filtCategoryArray = [String]()
     
     var userAdvert: Bool = false
     
@@ -55,7 +58,7 @@ extension AdvertVC: UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = advertTableView.dequeueReusableCell(withIdentifier: AdvertCell.identifier,for: indexPath) as! AdvertCell
-        if selectedCategory == "" && userAdvert == false{
+        if selectedCategory == "" && userAdvert == false {
             cell.advertİmageView.sd_setImage(with: URL(string: imageUrlArray[indexPath.row]))
             cell.titleLabel.text = titleArray[indexPath.row]
             var price = priceArray[indexPath.row]
@@ -69,9 +72,27 @@ extension AdvertVC: UITableViewDelegate,UITableViewDataSource {
         }
         return cell
     }
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//         ÜRÜN DETAY EKRANI !
-//    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "detail") as? DetailVC
+        if useremailArray.count != 0 {
+                vc?.detailValue.username = useremailArray[indexPath.row]
+                vc?.detailValue.title = titleArray[indexPath.row]
+                vc?.detailValue.category = categoryArray[indexPath.row]
+                vc?.detailValue.date = "00.00.0000"
+                vc?.detailValue.imageUrl = imageUrlArray[indexPath.row]
+                vc?.detailValue.price = priceArray[indexPath.row]
+                vc?.detailValue.desc = descArray[indexPath.row]
+        }else { //} if filtUsernameArray.count != 0 {
+            vc?.detailValue.title = filtTitleArray[indexPath.row]
+            vc?.detailValue.username = filtUsernameArray[indexPath.row]
+            vc?.detailValue.desc = filtDescArray[indexPath.row]
+            vc?.detailValue.price = filtPriceArray[indexPath.row]
+            vc?.detailValue.imageUrl = filtImageArray[indexPath.row]
+            vc?.detailValue.category = filtCategoryArray[indexPath.row]
+            vc?.detailValue.date = "00.00.0000"
+        }
+        self.navigationController?.pushViewController(vc!, animated: true)
+    }
 }
 
 extension AdvertVC {
@@ -94,7 +115,6 @@ extension AdvertVC {
                     
                     for document in snapshot!.documents {
                         let documentId = document.documentID
-                        
                         if let email = document.get("usernameEmail") as? String {
                             self.useremailArray.append(email)
                         }
@@ -129,24 +149,35 @@ extension AdvertVC {
                 DuplicateFuncs.alertMessage(title: "Error", message: error?.localizedDescription ?? "", vc: self)
             }else {
                 if snapshot?.isEmpty == false {
-                    self.titleArray.removeAll(keepingCapacity: false)
-                    self.priceArray.removeAll(keepingCapacity: false)
-                    self.imageUrlArray.removeAll(keepingCapacity: false)
-                    
+                    self.filtUsernameArray.removeAll(keepingCapacity: false)
+                    self.filtTitleArray.removeAll(keepingCapacity: false)
+                    self.filtPriceArray.removeAll(keepingCapacity: false)
+                    self.filtImageArray.removeAll(keepingCapacity: false)
+                    self.filtCategoryArray.removeAll(keepingCapacity: false)
+                    self.filtDescArray.removeAll(keepingCapacity: false)
                     for document in snapshot!.documents {
-                        let documentId = document.documentID
+                    //    let documentId = document.documentID
                         
                         if self.selectedCategory == document.get("category") as? String {
-                                self.rowCount += 1
-                                if let title = document.get("title") as? String{
-                                    self.filtTitleArray.append(title)
-                                }
-                                if let price = document.get("price") as? String {
-                                    self.filtPriceArray.append(price)
-                                }
-                                if let imageUrl = document.get("imageUrl") as? String {
-                                    self.filtImageArray.append(imageUrl)
-                                }
+                            self.rowCount += 1
+                            if let email = document.get("usernameEmail") as? String {
+                                self.filtUsernameArray.append(email)
+                            }
+                            if let category = document.get("category") as? String {
+                                self.filtCategoryArray.append(category)
+                            }
+                            if let title = document.get("title") as? String{
+                                self.filtTitleArray.append(title)
+                            }
+                            if let price = document.get("price") as? String {
+                                self.filtPriceArray.append(price)
+                            }
+                            if let imageUrl = document.get("imageUrl") as? String {
+                                self.filtImageArray.append(imageUrl)
+                            }
+                            if let description = document.get("desc") as? String {
+                                self.filtDescArray.append(description)
+                            }
                         }
                         
                     }

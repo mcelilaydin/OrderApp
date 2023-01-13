@@ -21,6 +21,10 @@ class HomeVC: BaseVC {
     var myImageUrlArray = [String]()
     var myTitleArray = [String]()
     var myPriceArray = [String]()
+    var myUseremailArray = [String]()
+    var myDescArray = [String]()
+    var myCategoryArray = [String]()
+    //var myDateArray = [String]()
     
     var str1 = "https://imgrosetta.mynet.com.tr/file/1524517/728xauto.jpg"
     var str2 = "https://www.eskelemlak.com/wp-content/uploads/2020/05/bursa-eskel-satilik-bahceli-mustakil-ev-811x510.jpg"
@@ -89,6 +93,9 @@ extension HomeVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollecti
             vc?.filtTitleArray = myTitleArray
             vc?.filtPriceArray = myPriceArray
             vc?.filtImageArray = myImageUrlArray
+            vc?.filtDescArray = myDescArray
+            vc?.filtCategoryArray = myCategoryArray
+            vc?.filtUsernameArray = myUseremailArray
             self.navigationController?.pushViewController(vc!, animated: true)
         }else {
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "advert") as? AdvertVC
@@ -122,6 +129,9 @@ extension HomeVC {
                         if let email = document.get("usernameEmail") as? String {
                             if Auth.auth().currentUser?.email != ""{
                                 if Auth.auth().currentUser!.email == email {
+                                    if let email = document.get("usernameEmail") as? String {
+                                        self.myUseremailArray.append(email)
+                                    }
                                     if let imageUrl = document.get("imageUrl") as? String {
                                         self.myImageUrlArray.append(imageUrl)
                                     }
@@ -130,6 +140,12 @@ extension HomeVC {
                                     }
                                     if let price = document.get("price") as? String {
                                         self.myPriceArray.append(price)
+                                    }
+                                    if let category = document.get("category") as? String {
+                                        self.myCategoryArray.append(category)
+                                    }
+                                    if let description = document.get("desc") as? String {
+                                        self.myDescArray.append(description)
                                     }
                                 }
                             }

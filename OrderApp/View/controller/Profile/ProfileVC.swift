@@ -38,15 +38,17 @@ class ProfileVC: BaseVC {
                     }
                 })
             }else {
-                DuplicateFuncs.alertMessage(title: "Hata", message: "Lütfen Aynı şifre Giriniz", vc: self)
+                DuplicateFuncs.alertMessage(title: "Hata", message: "Hatalı Şifre Girdiniz.", vc: self)
             }
+        }else {
+            DuplicateFuncs.alertMessage(title: "Hata", message: "Lütfen Yeni Şifre Giriniz.", vc: self)
         }
     }
 
     @IBAction func logoutButtonClicked(_ sender: Any) {
         do{
             try Auth.auth().signOut()
-            let vc = self.storyboard?.instantiateViewController(withIdentifier: "login") as! LoginVC
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "loginNC") as! UINavigationController
             vc.modalPresentationStyle = .fullScreen
             self.present(vc, animated: true, completion: nil)
         }catch{

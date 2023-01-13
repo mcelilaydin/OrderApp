@@ -426,7 +426,7 @@
         <!--DetailVC-->
         <scene sceneID="SBW-a2-HN8">
             <objects>
-                <viewController id="jZw-UB-j0k" customClass="DetailVC" customModule="OrderApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="detail" id="jZw-UB-j0k" customClass="DetailVC" customModule="OrderApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Cci-io-I1N">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -590,13 +590,13 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="categoryLabel" destination="7t7-DH-zPN" id="IGi-gF-N3C"/>
-                        <outlet property="dateLabel" destination="aOa-jF-HT2" id="haS-bR-qkY"/>
-                        <outlet property="descLabel" destination="FcB-VF-hZz" id="qCM-1m-d1f"/>
-                        <outlet property="detailImageVİew" destination="Lxt-sP-pZt" id="aqx-qe-tYS"/>
-                        <outlet property="priceLabel" destination="7TI-pw-Z0n" id="pP9-aj-RmN"/>
-                        <outlet property="titleLabel" destination="uhZ-AM-BmE" id="cBm-iB-hnT"/>
-                        <outlet property="usernameLabel" destination="Vk2-VZ-W67" id="CI9-3b-UDU"/>
+                        <outlet property="categoryLabel" destination="7t7-DH-zPN" id="SeS-6P-7Tw"/>
+                        <outlet property="dateLabel" destination="aOa-jF-HT2" id="Eng-dn-Hjd"/>
+                        <outlet property="descLabel" destination="FcB-VF-hZz" id="BCY-Te-eDI"/>
+                        <outlet property="detailImageVİew" destination="Lxt-sP-pZt" id="4ZE-ex-OyN"/>
+                        <outlet property="priceLabel" destination="7TI-pw-Z0n" id="eco-Tu-dss"/>
+                        <outlet property="titleLabel" destination="uhZ-AM-BmE" id="0xi-sH-7RF"/>
+                        <outlet property="usernameLabel" destination="Vk2-VZ-W67" id="Tsx-Ma-psM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4yT-pn-zbT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
