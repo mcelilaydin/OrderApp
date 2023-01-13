@@ -11,6 +11,7 @@ import UIKit
 
 struct Detail {
     
+    var documentId: String
     var username: String
     var imageUrl: String
     var title: String

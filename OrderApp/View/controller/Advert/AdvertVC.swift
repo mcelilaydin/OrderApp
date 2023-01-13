@@ -20,6 +20,7 @@ class AdvertVC: BaseVC {
     var categoryArray = [String]()
     var imageUrlArray = [String]()
     var descArray = [String]()
+    var documentIdArray = [String]()
     //var dateArray = [String]()
     
     var selectedCategory : String = ""
@@ -30,6 +31,7 @@ class AdvertVC: BaseVC {
     var filtPriceArray = [String]()
     var filtDescArray = [String]()
     var filtCategoryArray = [String]()
+    var filtDocumentIdArray = [String]()
     
     var userAdvert: Bool = false
     
@@ -75,14 +77,15 @@ extension AdvertVC: UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "detail") as? DetailVC
         if useremailArray.count != 0 {
-                vc?.detailValue.username = useremailArray[indexPath.row]
-                vc?.detailValue.title = titleArray[indexPath.row]
-                vc?.detailValue.category = categoryArray[indexPath.row]
-                vc?.detailValue.date = "00.00.0000"
-                vc?.detailValue.imageUrl = imageUrlArray[indexPath.row]
-                vc?.detailValue.price = priceArray[indexPath.row]
-                vc?.detailValue.desc = descArray[indexPath.row]
-        }else { //} if filtUsernameArray.count != 0 {
+            vc?.detailValue.username = useremailArray[indexPath.row]
+            vc?.detailValue.title = titleArray[indexPath.row]
+            vc?.detailValue.category = categoryArray[indexPath.row]
+            vc?.detailValue.date = "00.00.0000"
+            vc?.detailValue.imageUrl = imageUrlArray[indexPath.row]
+            vc?.detailValue.price = priceArray[indexPath.row]
+            vc?.detailValue.desc = descArray[indexPath.row]
+            vc?.detailValue.documentId = documentIdArray[indexPath.row]
+        }else {
             vc?.detailValue.title = filtTitleArray[indexPath.row]
             vc?.detailValue.username = filtUsernameArray[indexPath.row]
             vc?.detailValue.desc = filtDescArray[indexPath.row]
@@ -90,6 +93,7 @@ extension AdvertVC: UITableViewDelegate,UITableViewDataSource {
             vc?.detailValue.imageUrl = filtImageArray[indexPath.row]
             vc?.detailValue.category = filtCategoryArray[indexPath.row]
             vc?.detailValue.date = "00.00.0000"
+            vc?.detailValue.documentId = filtDocumentIdArray[indexPath.row]
         }
         self.navigationController?.pushViewController(vc!, animated: true)
     }
@@ -114,7 +118,9 @@ extension AdvertVC {
                     self.descArray.removeAll(keepingCapacity: false)
                     
                     for document in snapshot!.documents {
-                        let documentId = document.documentID
+                        if let documentID = document.documentID as? String{
+                            self.documentIdArray.append(documentID)
+                        }
                         if let email = document.get("usernameEmail") as? String {
                             self.useremailArray.append(email)
                         }
@@ -156,10 +162,12 @@ extension AdvertVC {
                     self.filtCategoryArray.removeAll(keepingCapacity: false)
                     self.filtDescArray.removeAll(keepingCapacity: false)
                     for document in snapshot!.documents {
-                    //    let documentId = document.documentID
                         
                         if self.selectedCategory == document.get("category") as? String {
                             self.rowCount += 1
+                            if let documentID = document.documentID as? String{
+                                self.filtDocumentIdArray.append(documentID)
+                            }
                             if let email = document.get("usernameEmail") as? String {
                                 self.filtUsernameArray.append(email)
                             }

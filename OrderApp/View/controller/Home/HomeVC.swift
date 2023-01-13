@@ -25,6 +25,7 @@ class HomeVC: BaseVC {
     var myDescArray = [String]()
     var myCategoryArray = [String]()
     //var myDateArray = [String]()
+    var myDocumentId = [String]()
     
     var str1 = "https://imgrosetta.mynet.com.tr/file/1524517/728xauto.jpg"
     var str2 = "https://www.eskelemlak.com/wp-content/uploads/2020/05/bursa-eskel-satilik-bahceli-mustakil-ev-811x510.jpg"
@@ -33,7 +34,7 @@ class HomeVC: BaseVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         callCollection()
-        getImage()
+        myAdvertValue()
         advertSlide = [
             AdvertSlide(image:UIImage(named: "car")!),
             AdvertSlide(image:UIImage(named: "computer")!),
@@ -90,6 +91,7 @@ extension HomeVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollecti
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "advert") as? AdvertVC
             vc?.userAdvert = true
             vc?.rowCount = myImageUrlArray.count
+            vc?.filtDocumentIdArray = myDocumentId
             vc?.filtTitleArray = myTitleArray
             vc?.filtPriceArray = myPriceArray
             vc?.filtImageArray = myImageUrlArray
@@ -113,11 +115,19 @@ extension HomeVC {
         myListCollectionView.dataSource = self
     }
     
+    @objc func addNoti() {
+        DuplicateFuncs.alertMessage(title: "Başarılı", message: "Ürün Ekleme Başarılı", vc: self)
+    }
+    
+    @objc func deleteNoti() {
+        DuplicateFuncs.alertMessage(title: "Başarılı", message: "Ürün Silme Başarılı", vc: self)
+    }
+    
 }
 
 extension HomeVC {
     //MARK: -FİREBASE
-    func getImage(){
+    func myAdvertValue(){
         let firebaseDatabase = Firestore.firestore()
         firebaseDatabase.collection("Posts").order(by: "date", descending: true).addSnapshotListener { snapshot, error in
             if error != nil {
@@ -129,6 +139,9 @@ extension HomeVC {
                         if let email = document.get("usernameEmail") as? String {
                             if Auth.auth().currentUser?.email != ""{
                                 if Auth.auth().currentUser!.email == email {
+                                    if let documentID = document.documentID as? String{
+                                        self.myDocumentId.append(documentID)
+                                    }
                                     if let email = document.get("usernameEmail") as? String {
                                         self.myUseremailArray.append(email)
                                     }
