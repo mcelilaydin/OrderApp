@@ -43,7 +43,7 @@
                                             <constraint firstAttribute="height" constant="60" id="a0D-gf-3FC"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Sign Up">
+                                        <buttonConfiguration key="configuration" style="plain" title="KAYIT OL">
                                             <fontDescription key="titleFontDescription" type="boldSystem" pointSize="25"/>
                                             <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
@@ -67,6 +67,7 @@
                             <constraint firstItem="GX5-wz-n2g" firstAttribute="bottom" secondItem="W2C-rX-NRD" secondAttribute="bottom" constant="100" id="kqy-yd-dbD"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="1Rw-gd-SMV"/>
                     <connections>
                         <outlet property="UsernameTextField" destination="Zup-xM-OEN" id="OsM-Y8-fUh"/>
                         <outlet property="passwordTextField" destination="rEJ-Lk-TIS" id="ICU-6t-dUs"/>
@@ -75,7 +76,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6NX-he-Qge" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1871" y="-871"/>
+            <point key="canvasLocation" x="1871" y="-869"/>
         </scene>
         <!--OnboardingVC-->
         <scene sceneID="feZ-LG-v8I">
@@ -228,7 +229,7 @@
                                             <constraint firstAttribute="height" constant="60" id="co5-zP-9CN"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="LOG IN">
+                                        <buttonConfiguration key="configuration" style="plain" title="GİRİŞ YAP">
                                             <fontDescription key="titleFontDescription" type="boldSystem" pointSize="25"/>
                                             <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
@@ -247,7 +248,7 @@
                                             <constraint firstAttribute="height" constant="60" id="h4U-u3-LER"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="SIGN UP">
+                                        <buttonConfiguration key="configuration" style="plain" title="KAYIT OL">
                                             <fontDescription key="titleFontDescription" type="boldSystem" pointSize="25"/>
                                             <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
@@ -798,6 +799,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
                         <segue destination="I43-EP-qTn" kind="relationship" relationship="viewControllers" id="Nkk-b4-eDs"/>
@@ -830,7 +832,9 @@
         <scene sceneID="Y7t-NB-zZe">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="I43-EP-qTn" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="house.fill" catalog="system" id="s40-mf-fpy"/>
+                    <tabBarItem key="tabBarItem" title="" image="house.fill" catalog="system" id="s40-mf-fpy">
+                        <color key="badgeColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="rad-Nj-68S">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -849,7 +853,9 @@
         <scene sceneID="yOP-Dn-Gau">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Vm2-Pi-7Uv" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="magnifyingglass" catalog="system" id="qKp-tV-ED0"/>
+                    <tabBarItem key="tabBarItem" title="" image="magnifyingglass" catalog="system" id="qKp-tV-ED0">
+                        <color key="badgeColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="wFL-um-NYw">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>

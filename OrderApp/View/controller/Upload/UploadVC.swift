@@ -24,7 +24,7 @@ class UploadVC: BaseVC, UIImagePickerControllerDelegate, UINavigationControllerD
         super.viewDidLoad()
         descTextView.delegate = self
         setImageView()
-//        setTextField()
+        setTextfield()
 
         // Do any additional setup after loading the view.
     }
@@ -49,17 +49,16 @@ class UploadVC: BaseVC, UIImagePickerControllerDelegate, UINavigationControllerD
                     imageReference.downloadURL { url, error in
                         if error == nil {
                             let imageUrl = url?.absoluteString
-
                             let firestoreDatabase = Firestore.firestore()
-                            
                             var firestoreReference: DocumentReference? = nil
                             
+                            let categoryStr = self.categoryTextfield.text!.lowercased().trimmingCharacters(in: .whitespacesAndNewlines)
                             let firestorePosts = [
                                 "imageUrl" : imageUrl!,
                                 "usernameEmail" : Auth.auth().currentUser!.email,
                                 "title" : self.titleTextfield.text!,
-                                "category" : self.categoryTextfield.text!,
-                                "price" : self.priceTextfield.text!,
+                                "category" : categoryStr,
+                                "price" : self.priceTextfield.text!.trimmingCharacters(in: .whitespacesAndNewlines),
                                 "desc" : self.descTextView.text!,
                                 "date": FieldValue.serverTimestamp()
                             ] as [String : Any]
@@ -82,6 +81,13 @@ class UploadVC: BaseVC, UIImagePickerControllerDelegate, UINavigationControllerD
 }
 
 extension UploadVC {
+    
+    func setTextfield() {
+        titleTextfield.autocorrectionType = .no
+        categoryTextfield.autocorrectionType = .no
+        priceTextfield.autocorrectionType = .no
+        descTextView.autocorrectionType = .no
+    }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
         if descTextView.text == "Açıklama Giriniz..." {

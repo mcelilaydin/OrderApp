@@ -43,18 +43,18 @@ class SignUpVC: BaseVC {
 }
 
 extension SignUpVC {
-        
-        func setTextFieldAtt(){
-            UsernameTextField.attributeTextField(Str: "Kullanıcı Adı")
-            UsernameTextField.leftPadding(10)
-            passwordTextField.leftPadding(10)
-            passwordTextField.attributeTextField(Str: "Şifre")
-            UsernameTextField.autocorrectionType = .no
-            passwordTextField.autocorrectionType = .no
-        }
-        
-        func setButtonAtt() {
-            signUpBtn.backgroundColor = .gray
-        }
-        
+    
+    func setTextFieldAtt(){
+        UsernameTextField.attributeTextField(Str: "Kullanıcı Adı")
+        UsernameTextField.leftPadding(10)
+        passwordTextField.leftPadding(10)
+        passwordTextField.attributeTextField(Str: "Şifre")
+        UsernameTextField.autocorrectionType = .no
+        passwordTextField.autocorrectionType = .no
+    }
+    
+    func setButtonAtt() {
+        signUpBtn.backgroundColor = .gray
+    }
+    
 }

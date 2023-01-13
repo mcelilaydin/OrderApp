@@ -22,10 +22,9 @@ class HomeVC: BaseVC {
     var myTitleArray = [String]()
     var myPriceArray = [String]()
     
-    //MARK: to be fixed !!
-    var str1 = "https://firebasestorage.googleapis.com:443/v0/b/orderapp-dcb5d.appspot.com/o/media%2F88588CAE-5AC7-47A6-BFBB-B814D6F31E36.jpg?alt=media&token=08a1f2c1-9b0d-43e3-b17a-7529e8c7d7b7"
-    var str2 = "https://firebasestorage.googleapis.com:443/v0/b/orderapp-dcb5d.appspot.com/o/media%2F098BABF5-61AF-415C-AF4B-A0E6DAF1C6A0.jpg?alt=media&token=4938fb55-5a48-4e19-b5cf-47a1641f16a1"
-    var str3 = "https://firebasestorage.googleapis.com:443/v0/b/orderapp-dcb5d.appspot.com/o/media%2F94C9A58B-ABB5-437E-92DB-B43DCF23A9D8.jpg?alt=media&token=ef5248ef-fa94-4dcf-9886-344933932f4c"
+    var str1 = "https://imgrosetta.mynet.com.tr/file/1524517/728xauto.jpg"
+    var str2 = "https://www.eskelemlak.com/wp-content/uploads/2020/05/bursa-eskel-satilik-bahceli-mustakil-ev-811x510.jpg"
+    var str3 = "https://www.ikincielesya.web.tr/wp-content/uploads/2012/10/20170302_123153.jpg"
 
     override func viewDidLoad() {
         super.viewDidLoad()
