@@ -46,7 +46,7 @@ extension DetailVC {
     func userControl(){
         if Auth.auth().currentUser?.email != nil {
             if detailValue.username == Auth.auth().currentUser!.email {
-                navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Delete", style: .plain, target: self, action: #selector(deleteClicked))
+                navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Sil", style: .plain, target: self, action: #selector(deleteClicked))
                 navigationItem.titleView?.tintColor = .black
             }
         }
