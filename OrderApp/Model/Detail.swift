@@ -18,6 +18,5 @@ struct Detail {
     var price: String
     var category: String
     var desc: String
-    var date: String
     
 }

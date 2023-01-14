@@ -238,8 +238,8 @@
 		4C943BBE2963491100B8EABB /* controller */ = {
 			isa = PBXGroup;
 			children = (
-				4C6A8BB82970D910003AA7AA /* Detail */,
 				4C0F2044296A321400E43E97 /* BaseController */,
+				4C6A8BB82970D910003AA7AA /* Detail */,
 				4C0F203B29688C8000E43E97 /* Advert */,
 				4C2C14812963A8A800D53813 /* Upload */,
 				4C2C147E2963A7CA00D53813 /* Search */,

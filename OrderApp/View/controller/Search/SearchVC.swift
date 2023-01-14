@@ -12,6 +12,8 @@ import FirebaseStorage
 class SearchVC: BaseVC {
     
     @IBOutlet weak var searchTableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
+    
     
     var categoryArray = [String]()
     var uniqueArray = [String]()

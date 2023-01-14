@@ -21,7 +21,6 @@ class AdvertVC: BaseVC {
     var imageUrlArray = [String]()
     var descArray = [String]()
     var documentIdArray = [String]()
-    //var dateArray = [String]()
     
     var selectedCategory : String = ""
     var rowCount : Int = 0
@@ -80,7 +79,6 @@ extension AdvertVC: UITableViewDelegate,UITableViewDataSource {
             vc?.detailValue.username = useremailArray[indexPath.row]
             vc?.detailValue.title = titleArray[indexPath.row]
             vc?.detailValue.category = categoryArray[indexPath.row]
-            vc?.detailValue.date = "00.00.0000"
             vc?.detailValue.imageUrl = imageUrlArray[indexPath.row]
             vc?.detailValue.price = priceArray[indexPath.row]
             vc?.detailValue.desc = descArray[indexPath.row]
@@ -92,7 +90,6 @@ extension AdvertVC: UITableViewDelegate,UITableViewDataSource {
             vc?.detailValue.price = filtPriceArray[indexPath.row]
             vc?.detailValue.imageUrl = filtImageArray[indexPath.row]
             vc?.detailValue.category = filtCategoryArray[indexPath.row]
-            vc?.detailValue.date = "00.00.0000"
             vc?.detailValue.documentId = filtDocumentIdArray[indexPath.row]
         }
         self.navigationController?.pushViewController(vc!, animated: true)
@@ -205,5 +202,4 @@ extension AdvertVC {
             getFiltData()
         }
     }
-    
 }

@@ -24,7 +24,6 @@ class HomeVC: BaseVC {
     var myUseremailArray = [String]()
     var myDescArray = [String]()
     var myCategoryArray = [String]()
-    //var myDateArray = [String]()
     var myDocumentId = [String]()
     
     var str1 = "https://imgrosetta.mynet.com.tr/file/1524517/728xauto.jpg"

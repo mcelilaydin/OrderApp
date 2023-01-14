@@ -16,10 +16,9 @@ class DetailVC: UIViewController {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
-    @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var descTextView: UITextView!
     
-    var detailValue = Detail(documentId: "", username: "", imageUrl: "", title: "", price: "", category: "", desc: "", date: "")
+    var detailValue = Detail(documentId: "", username: "", imageUrl: "", title: "", price: "", category: "", desc: "")
     
 
     override func viewDidLoad() {
@@ -40,9 +39,7 @@ extension DetailVC {
         priceLabel.text = detailValue.price.currencyInputFormatting()
         categoryLabel.text = detailValue.category.uppercased()
         usernameLabel.text = detailValue.username
-        dateLabel.text = detailValue.date
         descTextView.text = detailValue.desc
-        
         descTextView.isEditable = false
     }
     
